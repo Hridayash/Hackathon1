@@ -13,10 +13,166 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model user{
-  id Int @id @default(autoincrement())
-  name String 
-  email String @unique
-  password String
 
+model User {
+  user_id         Int        @id @default(autoincrement())
+  name            String
+  email           String     @unique
+  password_hash   String
+  profile_picture String?    // Optional field
+  bio             String?
+  anonymous_mode  Boolean    @default(false)
+  created_at      DateTime   @default(now())
+  updated_at      DateTime   @updatedAt
+  profile         Profile?
+  events          Event[]    @relation("UserEvents")
+  rsvps           Rsvp[]
+  group_memberships GroupMember[]
+  submissions     UserSubmission[]
+  threads         DiscussionThread[]
+  replies         ThreadReply[]
+  notifications   Notification[]
+  reports         Report[]
+  group           Group[]
+
+  @@map("users")
 }
+
+model Profile {
+  profile_id Int      @id @default(autoincrement())
+  user       User     @relation(fields: [user_id], references: [user_id])
+  user_id    Int      @unique
+  hobbies    String[]
+  interests  String[]
+  location   String?
+  friends    Int[]    // Array of user IDs as friend connections
+
+  @@map("profiles")
+}
+
+model Event {
+  event_id      Int      @id @default(autoincrement())
+  name          String
+  description   String?
+  location      String?
+  start_time    DateTime
+  end_time      DateTime
+  category      String   // e.g., 'Cultural', 'Outdoor'
+  organizer     User?    @relation("UserEvents", fields: [organizer_id], references: [user_id])
+  organizer_id  Int?
+  created_at    DateTime @default(now())
+  rsvps         Rsvp[]
+
+  @@map("events")
+}
+
+model Rsvp {
+  rsvp_id        Int      @id @default(autoincrement())
+  user           User     @relation(fields: [user_id], references: [user_id])
+  user_id        Int
+  event          Event    @relation(fields: [event_id], references: [event_id])
+  event_id       Int
+  status         String   // 'Going', 'Interested', 'Not Going'
+  rsvp_timestamp DateTime @default(now())
+
+  @@map("rsvps")
+}
+
+model Group {
+  group_id   Int         @id @default(autoincrement())
+  name       String
+  description String?
+  created_by User?       @relation(fields: [created_by_id], references: [user_id])
+  created_by_id Int?
+  created_at DateTime    @default(now())
+  members    GroupMember[]
+
+  @@map("groups")
+}
+
+model GroupMember {
+  member_id Int      @id @default(autoincrement())
+  group     Group    @relation(fields: [group_id], references: [group_id])
+  group_id  Int
+  user      User     @relation(fields: [user_id], references: [user_id])
+  user_id   Int
+  role      String   // 'Member' or 'Admin'
+  joined_at DateTime @default(now())
+
+  @@map("group_members")
+}
+
+model Challenge {
+  challenge_id Int      @id @default(autoincrement())
+  name         String
+  description  String?
+  start_date   DateTime
+  end_date     DateTime
+  created_at   DateTime @default(now())
+  submissions  UserSubmission[]
+
+  @@map("challenges")
+}
+
+model UserSubmission {
+  submission_id Int      @id @default(autoincrement())
+  challenge     Challenge @relation(fields: [challenge_id], references: [challenge_id])
+  challenge_id  Int
+  user          User     @relation(fields: [user_id], references: [user_id])
+  user_id       Int
+  content       String
+  photo_url     String?
+  submission_date DateTime @default(now())
+
+  @@map("user_submissions")
+}
+
+model Notification {
+  notification_id Int      @id @default(autoincrement())
+  user            User     @relation(fields: [user_id], references: [user_id])
+  user_id         Int
+  content         String
+  is_read         Boolean  @default(false)
+  created_at      DateTime @default(now())
+
+  @@map("notifications")
+}
+
+model DiscussionThread {
+  thread_id   Int      @id @default(autoincrement())
+  title       String
+  created_by  User?    @relation(fields: [created_by_id], references: [user_id])
+  created_by_id Int?
+  category    String?  // e.g., 'Photography', 'Hiking'
+  created_at  DateTime @default(now())
+  replies     ThreadReply[]
+
+  @@map("discussion_threads")
+}
+
+model ThreadReply {
+  reply_id    Int      @id @default(autoincrement())
+  thread      DiscussionThread @relation(fields: [thread_id], references: [thread_id])
+  thread_id   Int
+  user        User     @relation(fields: [user_id], references: [user_id])
+  user_id     Int
+  content     String
+  is_anonymous Boolean  @default(false)
+  created_at  DateTime @default(now())
+
+  @@map("thread_replies")
+}
+
+model Report {
+  report_id        Int      @id @default(autoincrement())
+  reported_by      User     @relation(fields: [reported_by_id], references: [user_id])
+  reported_by_id   Int
+  reported_content_id Int
+  content_type     String   // 'Thread', 'Event', 'Message'
+  reason           String
+  status           String   // 'Open', 'Resolved', 'Dismissed'
+  created_at       DateTime @default(now())
+
+  @@map("reports")
+}
+
