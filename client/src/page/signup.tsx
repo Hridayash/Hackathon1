@@ -32,7 +32,7 @@ const Signup: React.FC = () => {
       console.log('Signup successful:', response.data);
       // Handle successful signup (e.g., redirect, show message)
       navigate('/login'); // Redirect to login page after successful signup
-    } catch (error) {
+    } catch (error:any) {
       console.error('Signup failed:', error.response.data);
       // Handle signup error (e.g., show error message)
     }

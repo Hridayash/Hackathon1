@@ -22,8 +22,8 @@ const Login: React.FC = () => {
       });
       console.log('Login successful:', response.data);
       // Handle successful login (e.g., redirect to dashboard)
-      navigate('/dashboard'); // Change to the appropriate route after login
-    } catch (error) {
+      navigate('/home'); // Change to the appropriate route after login
+    } catch (error:any) {
       console.error('Login failed:', error.response?.data || error.message);
       // Handle login error (e.g., show error message)
     }
