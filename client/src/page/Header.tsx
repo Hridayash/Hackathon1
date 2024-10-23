@@ -2,42 +2,49 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white text-black-600 p-4 shadow-md">
+    <header className="fixed top-0 left-0 w-full bg-white text-black p-4 shadow-md z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-blue-600">BlendIn</h2>
-        <nav className="flex space-x-4">
-          <a
-            href="/"
-            className="transition-colors duration-300 hover:text-blue-800"
-          >
-            Home
-          </a>
-          <a
-            href="/about"
-            className="transition-colors duration-300 hover:text-blue-800"
-          >
-            About Us
-          </a>
-          <a
-            href="/events"
-            className="transition-colors duration-300 hover:text-blue-800"
-          >
-            Events
-          </a>
-        </nav>
+        {/* Logo or Brand Name */}
+        <h2 className="text-3xl font-bold text-teal-700">BlendIn</h2>
+
+       
+
+        {/* Auth Buttons */}
         <div className="flex space-x-4">
-          <a
-            href="/login"
-            className="bg-blue-600 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-700"
-          >
-            Login
-          </a>
-          <a
-            href="/signup"
-            className="bg-blue-600 text-white py-2 px-4 rounded transition-colors duration-300 hover:bg-blue-700"
-          >
-            Sign Up
-          </a>
+  <a
+    href="/login"
+    className="bg-black text-white py-2 px-6 rounded-full border-2 border-transparent hover:bg-gray-800 hover:border-gray-500 transition-all duration-300 shadow-lg"
+  >
+    Login
+  </a>
+  <a
+    href="/signup"
+    className="bg-gray-700 text-white py-2 px-6 rounded-full border-2 border-transparent hover:bg-gray-600 hover:border-gray-500 transition-all duration-300 shadow-lg"
+  >
+    Sign Up
+  </a>
+</div>
+
+
+        {/* Mobile Navigation Menu */}
+        <div className="md:hidden">
+          <button className="text-blue-600 focus:outline-none">
+            {/* Icon for mobile menu (you can use a hamburger icon here) */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </header>

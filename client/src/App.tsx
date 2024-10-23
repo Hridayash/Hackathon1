@@ -12,6 +12,7 @@ import LandingPage from "./page/landingpage";
 
 
 
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
