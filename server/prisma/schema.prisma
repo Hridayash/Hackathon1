@@ -99,7 +99,7 @@ model GroupMember {
   role      String   // 'Member' or 'Admin'
   joined_at DateTime @default(now())
 
-  @@map("group-members")
+  @@map("group_members")
 }
 
 model Challenge {
