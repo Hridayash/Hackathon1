@@ -188,16 +188,16 @@ export default function Dashboard() {
 
           {/* Cultural Events Section */}
           <Card className="col-span-2 bg-white shadow-lg rounded-lg overflow-hidden">
-            <CardHeader className="bg-purple-600 text-white">
+            <CardHeader className="bg-cyan-600 text-white">
               <CardTitle className="text-2xl">Cultural Events</CardTitle>
               <CardDescription className="text-purple-100">Explore and share diverse cultural experiences</CardDescription>
             </CardHeader>
             <CardContent className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-semibold text-purple-700">Upcoming Cultural Events</h3>
+                <h3 className="text-xl font-semibold text-cyan-700">Upcoming Cultural Events</h3>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="bg-purple-500 hover:bg-purple-600 text-white">
+                    <Button className="bg-cyan-500 hover:bg-cyan-600 text-white">
                       <PlusCircle className="h-4 w-4 mr-2" />
                       Post Event
                     </Button>
@@ -245,8 +245,8 @@ export default function Dashboard() {
                 {culturalEvents.map((event) => (
                   <div key={event.id} className="mb-6 last:mb-0">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-purple-700">{event.name}</h4>
-                      <Badge variant="outline" className="bg-purple-100 text-purple-700">
+                      <h4 className="text-lg font-semibold text-cyan-700">{event.name}</h4>
+                      <Badge variant="outline" className="bg-purple-100 text-cyan-700">
                         Cultural
                       </Badge>
                     </div>
@@ -263,7 +263,7 @@ export default function Dashboard() {
                       Organized by: {event.organizer}
                     
                     </p>
-                    <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">Learn More</Button>
+                    <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white">Learn More</Button>
                   </div>
                 ))}
               </ScrollArea>

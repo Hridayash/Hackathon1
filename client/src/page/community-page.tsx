@@ -8,6 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { UserPlus, MessageCircle, Search, Users, Bell } from "lucide-react"
+import Nav from "@/components/nav"
 
 // Mock data for community members
 const initialMembers = [
@@ -85,8 +86,12 @@ export default function CommunityPage() {
   }, [selectedMember])
 
   return (
+    <>
+      <Nav />
     <div className="container mx-auto p-4">
+    
       <div className="flex justify-between items-center mb-6">
+        
         <h1 className="text-3xl font-bold text-cyan-700">Community</h1>
         <div className="flex items-center space-x-2">
           <TooltipProvider>
@@ -233,5 +238,6 @@ export default function CommunityPage() {
         </TabsContent>
       </Tabs>
     </div>
+    </>
   )
 }

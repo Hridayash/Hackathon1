@@ -9,8 +9,10 @@ import Footer from './Footer'
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <>
+    <Header />
+    <div className="flex flex-col min-h-screen items-center">
+      
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-blue-50 to-indigo-50">
           <div className="container px-4 md:px-6">
@@ -230,7 +232,9 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <Footer />
+     
     </div>
+    <Footer />
+    </>
   )
 }

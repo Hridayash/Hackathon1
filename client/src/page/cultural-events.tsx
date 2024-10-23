@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactEventHandler } from 'react'
 import { PlusCircle, CalendarIcon, MapPinIcon, Globe2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import lady from "../assets/a.png"
 import {
   Dialog,
   DialogContent,
@@ -16,8 +15,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
+import Nav from '@/components/nav'
 
 // Sample data for cultural events
 const initialCulturalEvents = [
@@ -28,7 +27,7 @@ const initialCulturalEvents = [
     location: "Little India, Singapore",
     organizer: "Singapore Hindu Endowments Board",
     description: "Experience the vibrant celebration of Diwali with stunning light displays, cultural performances, and delicious Indian cuisine.",
-    image: "../assets/a.png"
+    image: "https://images.unsplash.com/photo-1508519829430-40f7d3d161b4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 2,
@@ -37,7 +36,7 @@ const initialCulturalEvents = [
     location: "Universal Studios, Orlando",
     organizer: "Universal Orlando Resort",
     description: "Join us for a night of thrills and chills with haunted houses, costume contests, and trick-or-treating throughout the park.",
-    image: "https://uxwxqvvvvjxhqpxjnzca.supabase.co/storage/v1/object/public/images/halloween.jpg"
+    image: "https://img.freepik.com/free-vector/halloween-background-flat-design_52683-43845.jpg"
   },
   {
     id: 3,
@@ -46,7 +45,7 @@ const initialCulturalEvents = [
     location: "Chinatown, San Francisco",
     organizer: "San Francisco Chinese Chamber of Commerce",
     description: "Welcome the Year of the Dragon with traditional lion dances, fireworks, and a grand parade through the streets of Chinatown.",
-    image: "/placeholder.svg?height=200&width=300"
+    image: "https://cdn.vectorstock.com/i/1000v/75/81/lunar-new-year-chinese-2025-vector-49017581.jpg"
   },
   {
     id: 4,
@@ -55,7 +54,7 @@ const initialCulturalEvents = [
     location: "Theresienwiese, Munich",
     organizer: "City of Munich",
     description: "Experience the world's largest Volksfest with traditional Bavarian food, music, and of course, plenty of beer!",
-    image: "/placeholder.svg?height=200&width=300"
+    image: "https://cdn.prod.website-files.com/650827a5d8ab2afe46d870f7/66e04954192ce2e3d39d0e60_pexels-manjose-9827.jpg"
   },
 ]
 
@@ -96,18 +95,22 @@ export default function CulturalEvents() {
   }, [])
 
   return (
+    <>
+     <Nav />
+   
     <div className="container mx-auto py-10">
+      
       <Card className="w-full bg-white shadow-lg rounded-lg overflow-hidden">
-        <CardHeader className="bg-purple-600 text-white">
+        <CardHeader className="bg-cyan-700 text-white">
           <CardTitle className="text-3xl">Cultural Events</CardTitle>
           <CardDescription className="text-purple-100">Explore and share diverse cultural experiences</CardDescription>
         </CardHeader>
         <CardContent className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold text-purple-700">Upcoming Cultural Events</h2>
+            <h2 className="text-2xl font-semibold text-cyan-500">Upcoming Cultural Events</h2>
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white">
+                <Button className="bg-cyan-400 hover:bg-cyan-600 text-white">
                   <PlusCircle className="h-4 w-4 mr-2" />
                   Post Event
                 </Button>
@@ -159,7 +162,7 @@ export default function CulturalEvents() {
               </DialogContent>
             </Dialog>
           </div>
-          <ScrollArea className="h-[600px] pr-4">
+          <ScrollArea className="h-[1200px] pr-4">
             {culturalEvents.map((event, index) => (
               <motion.div
                 key={event.id}
@@ -193,7 +196,7 @@ export default function CulturalEvents() {
                     <p className="text-sm text-gray-600 mt-2">{event.description}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">Learn More</Button>
+                    <Button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white">Learn More</Button>
                   </CardFooter>
                 </Card>
               </motion.div>
@@ -202,5 +205,6 @@ export default function CulturalEvents() {
         </CardContent>
       </Card>
     </div>
+    </>
   )
 }
