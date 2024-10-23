@@ -7,6 +7,7 @@ import { Explore } from "./page/explore";
 import Signup from "./page/signup";
 import FriendsPage from "./page/community-page";
 import CulturalEvents from "./page/cultural-events";
+import LandingPage from "./page/landingpage";
 
 
 
