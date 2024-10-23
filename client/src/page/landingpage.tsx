@@ -118,7 +118,7 @@ export default function LandingPage() {
           <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
             <div className="container px-4 md:px-6">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-                Fun Facts About BlendIn
+               Future Target For BlendIn
               </h2>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 <Card className="shadow-md hover:shadow-lg transition-transform duration-300 hover:scale-105 text-center">
@@ -170,7 +170,7 @@ export default function LandingPage() {
     <p className="mx-auto max-w-[700px] text-lg mb-8 opacity-80 transition-opacity duration-300 ease-in-out hover:opacity-100">
       Join BlendIn today and start your journey of connection, cultural exploration, and unforgettable experiences.
     </p>
-    <Button size="lg" variant="secondary" className="bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg  onClick={handleGetStarted}">
+    <Button size="lg" variant="secondary" className="bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg " onClick={handleGetStarted}>
       Get Started Now
     </Button>
   </div>

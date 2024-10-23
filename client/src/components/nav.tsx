@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -12,12 +6,11 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md sticky top-0 left-0 w-full z-10">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         <Link to="/home">
           <div>
             <h1 className="text-3xl font-bold text-teal-700">BlendIn</h1>
-          
           </div>
         </Link>
 

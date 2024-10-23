@@ -8,6 +8,8 @@ import Signup from "./page/signup";
 import FriendsPage from "./page/community-page";
 import CulturalEvents from "./page/cultural-events";
 import LandingPage from "./page/landingpage";
+import UpcomingActivities from "./page/upcomingactivities";
+
 
 
 
@@ -25,7 +27,8 @@ const App: React.FC = () => {
         <Route path="/mygroups" element={<MyGroups />} /> {/* Changed to lowercase */}
         <Route path="/explore" element={<Explore />} /> {/* Changed to lowercase */}
         <Route path="/friends" element={<FriendsPage/>} /> {/* Changed to lowercase */}
-        <Route path="/cultural" element={<CulturalEvents/>} /> {/* Changed to lowercase */}
+        <Route path="/cultural" element={<CulturalEvents/>} />
+        <Route path="/upcoming" element={<UpcomingActivities/>} />  {/* Changed to lowercase */}
       
       
       </Routes>
