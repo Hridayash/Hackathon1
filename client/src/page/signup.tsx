@@ -6,6 +6,7 @@ import Header from './Header'; // Import the Header component
 import Footer from './Footer'; // Import the Footer component
 import { useNavigate } from 'react-router-dom';
 
+
 interface SignupInputs {
   fullName: string;
   email: string;

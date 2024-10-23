@@ -7,6 +7,7 @@ import { Explore } from "./page/explore";
 import Signup from "./page/signup";
 import FriendsPage from "./page/community-page";
 import CulturalEvents from "./page/cultural-events";
+import LandingPage from "./page/landingpage";
 
 
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/home" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
