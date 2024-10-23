@@ -1,11 +1,15 @@
+'use client'
 
-
-import { CalendarIcon, MapPinIcon, Users, PlusCircle } from "lucide-react"
+import { CalendarIcon, MapPinIcon, Users, PlusCircle, Globe2 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 import Nav from "@/components/nav"
 
 const upcomingActivities = [
@@ -40,13 +44,19 @@ const nextActivity = {
   items: ["Comfortable hiking shoes", "Water bottle", "Sunscreen", "Light snacks"],
 }
 
+const culturalEvents = [
+  { id: 1, name: "Diwali Festival", date: "2024-11-12", location: "City Center", organizer: "Indian Cultural Society" },
+  { id: 2, name: "Chinese New Year Parade", date: "2025-02-01", location: "Chinatown", organizer: "Chinese Community Center" },
+  { id: 3, name: "Oktoberfest Celebration", date: "2024-09-21", location: "Bavarian Beer Garden", organizer: "German Heritage Club" },
+]
+
 export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-emerald-50">
-        <Nav />
+      <Nav />
       
       <main className="container mx-auto px-4 py-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Outdoor Activities Section */}
           <Card className="col-span-full lg:col-span-2 bg-white shadow-lg rounded-lg overflow-hidden">
             <CardHeader className="bg-teal-600 text-white">
@@ -170,6 +180,90 @@ export default function Dashboard() {
                     <Button variant="outline" className="ml-4 bg-cyan-500 text-white hover:bg-cyan-600">
                       Connect
                     </Button>
+                  </div>
+                ))}
+              </ScrollArea>
+            </CardContent>
+          </Card>
+
+          {/* Cultural Events Section */}
+          <Card className="col-span-2 bg-white shadow-lg rounded-lg overflow-hidden">
+            <CardHeader className="bg-purple-600 text-white">
+              <CardTitle className="text-2xl">Cultural Events</CardTitle>
+              <CardDescription className="text-purple-100">Explore and share diverse cultural experiences</CardDescription>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-semibold text-purple-700">Upcoming Cultural Events</h3>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="bg-purple-500 hover:bg-purple-600 text-white">
+                      <PlusCircle className="h-4 w-4 mr-2" />
+                      Post Event
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle>Post a Cultural Event</DialogTitle>
+                      <DialogDescription>
+                        Share details about a cultural event you're organizing or have heard about.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="event-name" className="text-right">
+                          Event Name
+                        </Label>
+                        <Input id="event-name" className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="event-date" className="text-right">
+                          Date
+                        </Label>
+                        <Input id="event-date" type="date" className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="event-location" className="text-right">
+                          Location
+                        </Label>
+                        <Input id="event-location" className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="event-description" className="text-right">
+                          Description
+                        </Label>
+                        <Textarea id="event-description" className="col-span-3" />
+                      </div>
+                    </div>
+                    <DialogFooter>
+                      <Button type="submit">Post Event</Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </div>
+              <ScrollArea className="h-[300px] pr-4">
+                {culturalEvents.map((event) => (
+                  <div key={event.id} className="mb-6 last:mb-0">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-purple-700">{event.name}</h4>
+                      <Badge variant="outline" className="bg-purple-100 text-purple-700">
+                        Cultural
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">
+                      <CalendarIcon className="inline-block mr-2 h-4 w-4" />
+                      {new Date(event.date).toLocaleDateString()}
+                    </p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      <MapPinIcon className="inline-block mr-2 h-4 w-4" />
+                      {event.location}
+                    </p>
+                    <p className="text-sm text-gray-600 mb-4">
+                      <Globe2 className="inline-block mr-2 h-4 w-4" />
+                      Organized by: {event.organizer}
+                    
+                    </p>
+                    <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">Learn More</Button>
                   </div>
                 ))}
               </ScrollArea>
