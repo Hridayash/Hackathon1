@@ -6,7 +6,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import Nav from "@/components/nav"
 
 const userProfile = {
   name: "Alex Johnson",
@@ -36,10 +35,22 @@ const groups = [
   { id: 3, name: "Beach Lovers", members: 210, role: "Member" },
 ]
 
-export default function Profile() {
+export function Profile() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-emerald-50">
-     <Nav />
+      <header className="bg-white shadow-md">
+        <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-teal-700">BlendIn</h1>
+            <p className="text-xl text-emerald-600">My Profile</p>
+          </div>
+          <nav>
+            <Button variant="ghost" className="mr-2 text-teal-600 hover:text-teal-700 hover:bg-teal-50">Dashboard</Button>
+            <Button variant="ghost" className="mr-2 text-teal-600 hover:text-teal-700 hover:bg-teal-50">Explore</Button>
+            <Button variant="ghost" className="text-teal-600 hover:text-teal-700 hover:bg-teal-50">My Groups</Button>
+          </nav>
+        </div>
+      </header>
 
       <main className="container mx-auto px-4 py-8">
         <Card className="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
