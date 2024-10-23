@@ -8,6 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import Nav from "@/components/nav"
 
+
+
+
 const userProfile = {
   name: "Alex Johnson",
   username: "@alexj",
@@ -49,9 +52,19 @@ const certifications = [
 ]
 
 export default function Profile() {
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-emerald-50">
-      <Nav />
+     <Nav />
 
       <main className="container mx-auto px-4 py-8">
         <Card className="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
@@ -115,7 +128,7 @@ export default function Profile() {
           <TabsList className="mb-4">
             <TabsTrigger value="activities">My Activities</TabsTrigger>
             <TabsTrigger value="groups">My Groups</TabsTrigger>
-            <TabsTrigger value="volunteer">Volunteer</TabsTrigger>
+<TabsTrigger value="volunteer">Volunteer</TabsTrigger>
             <TabsTrigger value="certifications">Certifications</TabsTrigger>
           </TabsList>
           <TabsContent value="activities">
@@ -171,7 +184,7 @@ export default function Profile() {
               </CardContent>
             </Card>
           </TabsContent>
-          <TabsContent value="volunteer">
+<TabsContent value="volunteer">
             <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
               <CardHeader className="bg-purple-600 text-white">
                 <CardTitle className="text-2xl">Volunteer Experience</CardTitle>
