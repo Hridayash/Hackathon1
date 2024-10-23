@@ -1,5 +1,5 @@
 import * as React from "react"
-import { CalendarIcon, MapPinIcon, Users, Edit, Camera, Mail, Phone, Globe } from "lucide-react"
+import { CalendarIcon, MapPinIcon, Users, Edit, Camera, Mail, Phone, Globe, Award, Heart } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -36,10 +36,22 @@ const groups = [
   { id: 3, name: "Beach Lovers", members: 210, role: "Member" },
 ]
 
+const volunteerExperiences = [
+  { id: 1, organization: "Local Animal Shelter", role: "Dog Walker", duration: "2023 - Present" },
+  { id: 2, organization: "Community Garden", role: "Gardener", duration: "Summer 2023" },
+  { id: 3, organization: "Youth Mentorship Program", role: "Mentor", duration: "2022 - 2023" },
+]
+
+const certifications = [
+  { id: 1, name: "Wilderness First Aid", issuer: "Red Cross", date: "2023" },
+  { id: 2, name: "Advanced Photography", issuer: "National Photography Association", date: "2022" },
+  { id: 3, name: "Yoga Instructor", issuer: "Yoga Alliance", date: "2021" },
+]
+
 export default function Profile() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-emerald-50">
-     <Nav />
+      <Nav />
 
       <main className="container mx-auto px-4 py-8">
         <Card className="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
@@ -103,6 +115,8 @@ export default function Profile() {
           <TabsList className="mb-4">
             <TabsTrigger value="activities">My Activities</TabsTrigger>
             <TabsTrigger value="groups">My Groups</TabsTrigger>
+            <TabsTrigger value="volunteer">Volunteer</TabsTrigger>
+            <TabsTrigger value="certifications">Certifications</TabsTrigger>
           </TabsList>
           <TabsContent value="activities">
             <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -151,6 +165,58 @@ export default function Profile() {
                         {group.members} members
                       </p>
                       <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white">View Group</Button>
+                    </div>
+                  ))}
+                </ScrollArea>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="volunteer">
+            <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <CardHeader className="bg-purple-600 text-white">
+                <CardTitle className="text-2xl">Volunteer Experience</CardTitle>
+                <CardDescription className="text-purple-100">Your contributions to the community</CardDescription>
+              </CardHeader>
+              <CardContent className="p-6">
+                <ScrollArea className="h-[300px] pr-4">
+                  {volunteerExperiences.map((experience) => (
+                    <div key={experience.id} className="mb-6 last:mb-0">
+                      <h3 className="text-lg font-semibold text-purple-700 mb-2">{experience.organization}</h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        <Heart className="inline-block mr-2 h-4 w-4" />
+                        {experience.role}
+                      </p>
+                      <p className="text-sm text-gray-600 mb-4">
+                        <CalendarIcon className="inline-block mr-2 h-4 w-4" />
+                        {experience.duration}
+                      </p>
+                      <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">View Details</Button>
+                    </div>
+                  ))}
+                </ScrollArea>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="certifications">
+            <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <CardHeader className="bg-blue-600 text-white">
+                <CardTitle className="text-2xl">Certifications</CardTitle>
+                <CardDescription className="text-blue-100">Your professional achievements</CardDescription>
+              </CardHeader>
+              <CardContent className="p-6">
+                <ScrollArea className="h-[300px] pr-4">
+                  {certifications.map((cert) => (
+                    <div key={cert.id} className="mb-6 last:mb-0">
+                      <h3 className="text-lg font-semibold text-blue-700 mb-2">{cert.name}</h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        <Award className="inline-block mr-2 h-4 w-4" />
+                        {cert.issuer}
+                      </p>
+                      <p className="text-sm text-gray-600 mb-4">
+                        <CalendarIcon className="inline-block mr-2 h-4 w-4" />
+                        {cert.date}
+                      </p>
+                      <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">View Certificate</Button>
                     </div>
                   ))}
                 </ScrollArea>

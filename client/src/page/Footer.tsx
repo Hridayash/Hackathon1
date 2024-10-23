@@ -8,13 +8,13 @@ const Footer: React.FC = () => {
           <p>&copy; {new Date().getFullYear()} BlendIn. All rights reserved.</p>
         </div>
         <nav className="flex space-x-4">
-          <a href="/privacy-policy" className="hover:underline">
+          <a href="/privacy-policy" className="hover:underline" aria-label="Privacy Policy">
             Privacy Policy
           </a>
-          <a href="/terms-of-service" className="hover:underline">
+          <a href="/terms-of-service" className="hover:underline" aria-label="Terms of Service">
             Terms of Service
           </a>
-          <a href="/contact" className="hover:underline">
+          <a href="/feedback" className="hover:underline" aria-label="Contact Us">
             Contact Us
           </a>
         </nav>
