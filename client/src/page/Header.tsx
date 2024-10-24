@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link }from "react-router-dom"
 
 const Header: React.FC = () => {
   return (
-    <header className="fixed top-0 left-0 w-full bg-white text-black p-4 shadow-md z-50">
+    <header className="sticky top-0 left-0 w-full bg-white text-black p-4 shadow-md z-50 mb-10">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo or Brand Name */}
-        <h2 className="text-3xl font-bold text-teal-700">BlendIn</h2>
+        <Link to={"/"}><h2 className="text-3xl font-bold text-teal-700">BlendIn</h2></Link>
 
        
 
