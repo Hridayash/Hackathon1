@@ -188,7 +188,7 @@ export default function Profile() {
           </TabsContent>
 <TabsContent value="volunteer">
             <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="bg-purple-600 text-white">
+              <CardHeader className="bg-teal-600 text-white">
                 <CardTitle className="text-2xl">Volunteer Experience</CardTitle>
                 <CardDescription className="text-purple-100">Your contributions to the community</CardDescription>
               </CardHeader>
@@ -196,7 +196,7 @@ export default function Profile() {
                 <ScrollArea className="h-[300px] pr-4">
                   {volunteerExperiences.map((experience) => (
                     <div key={experience.id} className="mb-6 last:mb-0">
-                      <h3 className="text-lg font-semibold text-purple-700 mb-2">{experience.organization}</h3>
+                      <h3 className="text-lg font-semibold text-teal-700 mb-2">{experience.organization}</h3>
                       <p className="text-sm text-gray-600 mb-2">
                         <Heart className="inline-block mr-2 h-4 w-4" />
                         {experience.role}
@@ -205,7 +205,7 @@ export default function Profile() {
                         <CalendarIcon className="inline-block mr-2 h-4 w-4" />
                         {experience.duration}
                       </p>
-                      <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">View Details</Button>
+                      <Button className="w-full bg-teal-500 hover:bg-teal-700 text-white">View Details</Button>
                     </div>
                   ))}
                 </ScrollArea>
@@ -214,7 +214,7 @@ export default function Profile() {
           </TabsContent>
           <TabsContent value="certifications">
             <Card className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="bg-blue-600 text-white">
+              <CardHeader className="bg-emerald-600 text-white">
                 <CardTitle className="text-2xl">Certifications</CardTitle>
                 <CardDescription className="text-blue-100">Your professional achievements</CardDescription>
               </CardHeader>
@@ -222,7 +222,7 @@ export default function Profile() {
                 <ScrollArea className="h-[300px] pr-4">
                   {certifications.map((cert) => (
                     <div key={cert.id} className="mb-6 last:mb-0">
-                      <h3 className="text-lg font-semibold text-blue-700 mb-2">{cert.name}</h3>
+                      <h3 className="text-lg font-semibold text-emerald-700 mb-2">{cert.name}</h3>
                       <p className="text-sm text-gray-600 mb-2">
                         <Award className="inline-block mr-2 h-4 w-4" />
                         {cert.issuer}
@@ -231,7 +231,7 @@ export default function Profile() {
                         <CalendarIcon className="inline-block mr-2 h-4 w-4" />
                         {cert.date}
                       </p>
-                      <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">View Certificate</Button>
+                      <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white">View Certificate</Button>
                     </div>
 
                     

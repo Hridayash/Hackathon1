@@ -33,9 +33,7 @@ export default function LandingPage() {
                   <div className="flex flex-col gap-2 min-[400px]:flex-row">
                     
                     <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white"  onClick={handleGetStarted}>Get Started</Button>
-                    <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white">
-                      Learn More
-                    </Button>
+                 
                   </div>
                 </div>
                 <div className="flex justify-center">
