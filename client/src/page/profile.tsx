@@ -7,21 +7,23 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import Nav from "@/components/nav"
+import { Link } from "react-router-dom";
 
 const userProfile = {
-  name: "Alex Johnson",
-  username: "@alexj",
+  name: "Hridesh",
+  username: "@hridesh",
   avatar: "/placeholder.svg?height=128&width=128",
   bio: "Outdoor enthusiast | Photography lover | Always up for a new adventure!",
-  location: "San Francisco, CA",
-  email: "alex@example.com",
+  location: "Toronto, ON",
+  email: "hrideshp2@gmail.com",
   phone: "+1 (555) 123-4567",
-  website: "www.alexjohnson.com",
+  website: "www.hridesh.com",
   interests: ["Hiking", "Photography", "Travel", "Yoga", "Cooking"],
   socialMedia: [
-    { platform: "Instagram", username: "@alex.adventures" },
-    { platform: "Twitter", username: "@alexj_tweets" },
+    { platform: "Instagram", username: "@hridesh.adventures" },
+    { platform: "Twitter", username: "@hridesh_tweets" },
   ],
+  image: "https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/463926763_2331000177299333_9008157636020491970_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=8wZcVwbpqXIQ7kNvgGlMAAq&_nc_ht=scontent-ord5-1.xx&_nc_gid=AJ-MxEMC7tOYYBQ5bgeQYrZ&oh=00_AYDICKL7jctcwjX3Uw4dXgjSLLuos0EJXogUZovGIeTdyA&oe=671F4850"
 }
 
 const activities = [
@@ -63,7 +65,7 @@ export default function Profile() {
           </div>
           <CardContent className="p-6 relative">
             <Avatar className="absolute -top-16 left-6 h-32 w-32 border-4 border-white">
-              <AvatarImage src={userProfile.avatar} alt={userProfile.name} />
+              <AvatarImage src={userProfile.image} alt={userProfile.name} />
               <AvatarFallback>{userProfile.name.charAt(0)}</AvatarFallback>
             </Avatar>
             <div className="mt-20 flex justify-between items-start">
@@ -218,11 +220,21 @@ export default function Profile() {
                       </p>
                       <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">View Certificate</Button>
                     </div>
+
+                    
                   ))}
                 </ScrollArea>
               </CardContent>
             </Card>
           </TabsContent>
+          <Link to="/login">
+            <Button
+              
+              className="bg-red-500 text-white "
+            >
+              Logout
+            </Button>
+          </Link>
         </Tabs>
       </main>
     </div>
